@@ -60,7 +60,7 @@ def convert_csv_to_abap(input_csv='train.csv', output_txt='insert_business_data_
             txtfile.write(f"    ls_data-product_name = '{clean_value(row['Product Name'])}'.\n")
             txtfile.write(f"    ls_data-sales = '{clean_value(row['Sales'])}'.\n")
             txtfile.write("    ls_data-last_updated = '2024-12-23 12:00:00'.\n")
-            txtfile.write("    APPEND ls_data TO lt_orders.\n\n")
+            txtfile.write("    APPEND ls_data TO lt_data.\n\n")
             row_id += 1
         
         # Add the final ABAP insertion logic
