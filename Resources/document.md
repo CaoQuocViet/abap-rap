@@ -1,73 +1,44 @@
 # 1. Setup Docker
 
-Instructions to set up Docker for the project environment.
+To set up Docker for the SAP ABAP project, follow these steps:
+
+1. **Install Docker:**
+
+   If you haven't installed Docker yet, download it from the [Docker website](https://www.docker.com/get-started) and follow the installation instructions for your operating system.
+
+2. **Pull the SAP ABAP Trial Docker Image:**
+
+   Obtain the SAP ABAP trial Docker image. You may need to access the SAP Docker registry or follow the instructions provided by SAP to obtain the image.
+
+   ```sh
+   docker pull sap/sap-abap-trial:latest
+   ```
 
 # 2. AH4 License Configuration
-
-Steps to configure the AH4 license required for the project.
+Obtain your AH4 license key from the SAP licensing portal. Follow the configuration steps as outlined in the project requirements to integrate the license within your development environment.
 
 # 3. Run Docker
 
-How to start and manage Docker containers for the application.
-
 # 4. Download and Setup Eclipse to Connect with AS
-
-Guidelines to download Eclipse IDE and configure it to connect with the SAP Application Server.
+Download Eclipse IDE from the [Eclipse official site](https://www.eclipse.org/downloads/). Install the necessary SAP plugins by navigating to **Help > Eclipse Marketplace** and searching for "SAP ABAP". Follow the configuration steps to establish a connection with the SAP Application Server.
 
 # 5. Create Database Table
-
-Steps to create the necessary database tables using the provided `.asddls` files.
+Use the provided `.asddls` files to create the necessary database tables. Open Eclipse, navigate to **Dictionary/Database Tables/**, and execute the `ZORDERS_TABLE.asddls` script as outlined in the project documentation.
 
 # 6. Create CDS View
-
-Instructions to create Core Data Services (CDS) views for data modeling and analytics.
+Define Core Data Services (CDS) views to model and analyze your data. Locate the `ZI_CONNECTION_VIETCQ.asddls` file in **Core Data Services/Data Definations/** and follow the instructions to create and activate the CDS views.
 
 # 7. Create Business Service
-
-In this section, we will define different types of service bindings used in the creation of business services. Below is a summary of the available options:
-
-### Service Binding Types:
-
-1. **InA-UI**
-   - This type is used for applications that require integration with the SAP Fiori user interface. It ensures the service can be consumed by Fiori apps in the UI5 framework.
-
-2. **OData V2-UI**
-   - This binding type is used to create an OData service based on OData Version 2, which can be consumed by UI applications. It enables data exchange between the backend and UI components.
-
-3. **OData V2-Web API**
-   - OData V2-Web API is used for creating RESTful services that support OData Version 2 for external consumption through web APIs. This allows data access through the OData protocol over HTTP.
-
-4. **OData V4-UI**
-   - Similar to OData V2-UI, this binding type creates OData services, but using the more modern OData Version 4. This version is more efficient and supports new features like better query capabilities.
-
-5. **OData V4-Web API**
-   - Like OData V2-Web API, this option is used for creating web API services based on OData V4. It allows external applications to communicate with the backend using the latest OData version.
-
-6. **SQL-Web API**
-   - SQL-Web API is used to expose SQL-based data models as RESTful web services. It allows external systems to query databases directly over HTTP using SQL queries.
-
-### Choosing the Right Binding Type
-
-Depending on your use case (UI, external API, or database interaction), you can choose the appropriate service binding type to expose your data model to other applications and users.
+Develop business services by defining service bindings and exposing CDS views. Refer to the **Service Binding Types** section in the documentation to choose the appropriate binding based on your application requirements.
 
 # 8. Configure Service Bindings
-
-Detail the steps to configure the chosen service binding type in the project.
+Set up the chosen service bindings by editing the relevant `.asddls` files located in **Business Services/Service Bindings/**. Follow the guidelines provided to ensure proper configuration and integration with your business services.
 
 # 9. Test the Business Service
-
-Provide instructions on how to test the created business services to ensure they function as expected.
+Validate the functionality of your business services by running tests as described in the documentation. Ensure that all endpoints respond correctly and that data is being processed as expected.
 
 # 10. Deploy the Business Service
-
-Outline the deployment process for the business services to make them available to end-users and other applications.
+Deploy your business services to the production environment by following the deployment steps outlined in the documentation. Use Docker and Eclipse deployment tools to manage the release process efficiently.
 
 # 11. Monitor and Maintain Services
-
-Guidelines on monitoring the health and performance of the deployed services and performing necessary maintenance.
-
-## Additional Resources
-
-- [SAP Fiori Documentation](https://help.sap.com/viewer/product/SAP_FIORI)
-- [OData Protocol Documentation](https://www.odata.org/documentation/)
-- [Docker Documentation](https://docs.docker.com/)
+Continuously monitor the health and performance of your deployed services. Refer to the monitoring guidelines to set up logging, alerts, and regular maintenance tasks to ensure optimal performance and reliability.
