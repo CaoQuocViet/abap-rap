@@ -41,8 +41,15 @@ define view ZI_Connection_vietcq as select from zorders_table
     //     targetElement: '',
     //     url: ''
     // }]
-
+    @UI.chart: {
+        type: #COLUMN,
+        label: 'Sales by Category',
+        measure: [{ value: Sales }],
+        dimension: [{ value: Category }]
+    }
+    
     @UI.facet: [ {
+        qualifier: 'ConnectionDetails',
         purpose: #STANDARD,
         type: #IDENTIFICATION_REFERENCE,
         position: 10,
