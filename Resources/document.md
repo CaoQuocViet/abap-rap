@@ -1,14 +1,26 @@
-# 1. Setup docker
+# 1. Setup Docker
 
-# 2. AH4 license configuration
+Instructions to set up Docker for the project environment.
 
-# 3. Run docker
+# 2. AH4 License Configuration
 
-# 4. Downloads and etup Eclipse to connect with AS
+Steps to configure the AH4 license required for the project.
 
-# 5. Create database table
+# 3. Run Docker
+
+How to start and manage Docker containers for the application.
+
+# 4. Download and Setup Eclipse to Connect with AS
+
+Guidelines to download Eclipse IDE and configure it to connect with the SAP Application Server.
+
+# 5. Create Database Table
+
+Steps to create the necessary database tables using the provided `.asddls` files.
 
 # 6. Create CDS View
+
+Instructions to create Core Data Services (CDS) views for data modeling and analytics.
 
 # 7. Create Business Service
 
@@ -35,4 +47,27 @@ In this section, we will define different types of service bindings used in the 
    - SQL-Web API is used to expose SQL-based data models as RESTful web services. It allows external systems to query databases directly over HTTP using SQL queries.
 
 ### Choosing the Right Binding Type
+
 Depending on your use case (UI, external API, or database interaction), you can choose the appropriate service binding type to expose your data model to other applications and users.
+
+# 8. Configure Service Bindings
+
+Detail the steps to configure the chosen service binding type in the project.
+
+# 9. Test the Business Service
+
+Provide instructions on how to test the created business services to ensure they function as expected.
+
+# 10. Deploy the Business Service
+
+Outline the deployment process for the business services to make them available to end-users and other applications.
+
+# 11. Monitor and Maintain Services
+
+Guidelines on monitoring the health and performance of the deployed services and performing necessary maintenance.
+
+## Additional Resources
+
+- [SAP Fiori Documentation](https://help.sap.com/viewer/product/SAP_FIORI)
+- [OData Protocol Documentation](https://www.odata.org/documentation/)
+- [Docker Documentation](https://docs.docker.com/)
