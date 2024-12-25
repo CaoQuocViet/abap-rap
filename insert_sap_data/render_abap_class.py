@@ -31,17 +31,23 @@ def convert_csv_to_abap(input_csv='train.csv', output_txt='insert_business_data_
         txtfile.write("  METHOD insert_data.\n")
         txtfile.write("    \" Declare a table to hold the data to be inserted\n")
         txtfile.write("    DATA lt_data TYPE TABLE OF zorders_table.\n")
-        txtfile.write("    DATA ls_data TYPE zorders_table.\n")
+        txtfile.write("    DATA ls_data TYPE zorders_table.\n\n")
         
         reader = csv.DictReader(csvfile)
         row_id = 1
         for row in reader:
-            order_date = datetime.strptime(row['Order Date'], '%d/%m/%Y').strftime('%Y-%m-%d')
-            ship_date = datetime.strptime(row['Ship Date'], '%d/%m/%Y').strftime('%Y-%m-%d')
+            # Format dates as YYYYMMDD
+            order_date = datetime.strptime(row['Order Date'], '%d/%m/%Y').strftime('%Y%m%d')
+            ship_date = datetime.strptime(row['Ship Date'], '%d/%m/%Y').strftime('%Y%m%d')
+            # Get current time in HHMMSS format
+            current_time = datetime.now().strftime('%H%M%S')
+            # Format row_id as 10-digit zero-padded string
+            formatted_row_id = f"{row_id + 1:010}"
+            
             txtfile.write(f'    " Insert row {row_id} of data\n')
-            # txtfile.write('CLEAR ls_data.\n')
+            txtfile.write("    CLEAR ls_data.\n")
             txtfile.write("    ls_data-client = '100'.\n")
-            txtfile.write(f"    ls_data-row_id = '{row_id + 1}'.\n")
+            txtfile.write(f"    ls_data-row_id = '{formatted_row_id}'.\n")
             txtfile.write(f"    ls_data-order_id = '{clean_value(row['Order ID'])}'.\n")
             txtfile.write(f"    ls_data-order_date = '{order_date}'.\n")
             txtfile.write(f"    ls_data-ship_date = '{ship_date}'.\n")
@@ -59,16 +65,14 @@ def convert_csv_to_abap(input_csv='train.csv', output_txt='insert_business_data_
             txtfile.write(f"    ls_data-sub_category = '{clean_value(row['Sub-Category'])}'.\n")
             txtfile.write(f"    ls_data-product_name = '{clean_value(row['Product Name'])}'.\n")
             txtfile.write(f"    ls_data-sales = '{clean_value(row['Sales'])}'.\n")
-            txtfile.write("    ls_data-last_updated = '2024-12-23 12:00:00'.\n")
+            txtfile.write(f"    ls_data-last_updated = '{current_time}'.\n")
             txtfile.write("    APPEND ls_data TO lt_data.\n\n")
             row_id += 1
         
         # Add the final ABAP insertion logic
         txtfile.write("    \" Insert all the data into the table\n")
         txtfile.write("    MODIFY zorders_table FROM TABLE @lt_data.\n\n")
-        txtfile.write("\n")
         txtfile.write("  ENDMETHOD.\n\n")
-        txtfile.write("\n")
         txtfile.write("ENDCLASS.\n")
 
 if __name__ == '__main__':
