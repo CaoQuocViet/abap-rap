@@ -4,6 +4,8 @@
 
 This project is designed to manage and analyze sales orders within an SAP environment using ABAP Core Data Services (CDS). It includes the creation of database tables, CDS views, business services, and integration with SAP Fiori for an enhanced user interface. Docker is utilized to streamline the development and deployment processes.
 
+![Demo](Resources/img/abap-rap_demo.png)
+
 ## Table of Contents
 
 1. [Setup Docker](#1-setup-docker)
@@ -19,6 +21,12 @@ This project is designed to manage and analyze sales orders within an SAP enviro
 11. [Monitor and Maintain Services](#11-monitor-and-maintain-services)
 12. [Folder Structure](#12-folder-structure)
 13. [Additional Resources](#13-additional-resources)
+
+## Development Workspace
+
+The development workspace is set up in Visual Studio Code with integrated unit testing, an output pane, and a terminal for seamless development. Below is a snapshot of the workspace environment:
+
+![Workspace](Resources/img/abap-rap_workspace.png)
 
 ## 1. Setup Docker
 
