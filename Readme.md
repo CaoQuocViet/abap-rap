@@ -32,6 +32,8 @@ The development workspace is set up in Visual Studio Code with integrated unit t
 
 Refer to [Resources/document.md](Resources/document.md#1-setup-docker) for detailed instructions.
 
+![Container](Resources/img/docker_container.png)
+
 ## 2. AH4 License Configuration
 
 Refer to [Resources/document.md](Resources/document.md#2-ah4-license-configuration) for detailed instructions.
